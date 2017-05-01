@@ -9,7 +9,10 @@ import { Component } from '@angular/core';
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <p>content</p>
+        <h3>{{currentRecipe}}</h3>
+        <ul>
+          <li *ngFor="let currentRecipe of recipes">{{currentRecipe.description}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -17,5 +20,14 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  currentRecipe: string = 'Todays Recipe';
+  recipes: Recipe[] = [
+    new Recipe('Butter Chicken with Nan'),
+    new Recipe('Idli with Sambar'),
+    new Recipe('Mango Lassi')
+  ];
+}
 
+export class Recipe {
+  constructor(public description: string) { }
 }
